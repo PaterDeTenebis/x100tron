@@ -2,7 +2,14 @@ import React from 'react';
 
 import ButtonBlue from './functionals/ButtonBlue';
 
+import { Trans, useTranslation } from "react-i18next";
+
 function Face () {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);
+    };
+
     return (
         <section className="face">
             <div className="container">
@@ -10,12 +17,11 @@ function Face () {
                     <span>X<span className="tshad">100</span>TRON</span>
                 </div>
                 <div className="face_slogan">
-                    <span>Открытый, честный и профессионально просчитанный <br />
-                        Фонд Взаимопомощи на базе Смарт-контракта блокчейна Tron
+                    <span>{t("faceSlogan")}
                     </span>
                 </div>
                 <div className="face_btn_holder">
-                    <ButtonBlue text="открыть депозит" />
+                    <ButtonBlue text={t("buttonText")} />
                 </div>
             </div>
         </section>

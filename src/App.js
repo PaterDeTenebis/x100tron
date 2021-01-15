@@ -6,6 +6,8 @@ import About from './components/About';
 import Stat from './components/Stat';
 import Footer from './components/Footer';
 
+
+
 function App() {
   return (
     <div className="App">

@@ -1,6 +1,13 @@
 import React from 'react';
 
+import { Trans, useTranslation } from "react-i18next";
+
 function Header () {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);
+    };
+
     return (
         <section className="header">
             <div className="container">
@@ -13,16 +20,16 @@ function Header () {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Главная</a>
+                                <a className="nav-link" href="#">{t("navFirst")}</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">о проекте</a>
+                                <a className="nav-link" href="#">{t("navSecond")}</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">инвестировать</a>
+                                <a className="nav-link" href="#">{t("navThird")}</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">статистика</a>
+                                <a className="nav-link" href="#">{t("navFourth")}</a>
                             </li>
                             </ul>
                             
@@ -31,9 +38,9 @@ function Header () {
                     <div className="langs">
                         <span className="select-language">RU</span>
                         <span className="lang-list">
-                            <a href="">RU</a>
-                            <a href="">EN</a>
-                            <a href="">FR</a>
+                            <a onClick={() => changeLanguage("RU")}>RU</a>
+                            <a onClick={() => changeLanguage("EN")}>EN</a>
+                            <a onClick={() => changeLanguage("FR")}>FR</a>
                         </span>
                     </div>
                 </div>

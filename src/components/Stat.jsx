@@ -9,17 +9,24 @@ import Statistics from './functionals/Statistics';
 import StatCrowd from './functionals/StatCrowd';
 import AvBalance from './functionals/AvBalance';
 
+import { Trans, useTranslation } from "react-i18next";
+
 function Stat () {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);
+    };
+
     return (
         <section className="stat">
             <div className="container">
                 <div className="stat_heading">
-                    <span>Статистика x100tron</span>
+                    <span>{t("statHeading")}</span>
                 </div>
                 <div className="stat_main">
                     <div className="stat_main_side">
                         <div className="stat_main_side_heading">
-                            <span>персональная</span>
+                            <span>{t("statPersonal")}</span>
                         </div>
                         <Statistics
                             active="10.000"
@@ -31,7 +38,7 @@ function Stat () {
                             closeVolume="10.000"
                         />
                         <div className="stat_main_side_heading">
-                            <span>общая</span>
+                            <span>{t("crowd")}</span>
                         </div>
                         <StatCrowd
                             totalVolume="10.000"
@@ -42,7 +49,7 @@ function Stat () {
                     </div>
                     <div className="stat_main_side">
                         <div className="stat_main_side_heading">
-                            <span>доступный баланс</span>
+                            <span>{t("avBalance")}</span>
                         </div>
                         <div className="stat_main_side_body" >
                             <AvBalance 
@@ -51,9 +58,9 @@ function Stat () {
                                 valNum="24.000"
                             />
                         </div>
-                        <ButtonBlue text="открыть депозит" />
+                        <ButtonBlue text={t("buttonText")} />
                         <div className="stat_main_side_heading">
-                            <span>Моя партнёрская ссылка</span>
+                            <span>{t("link")}</span>
                         </div>
                         <div className="stat_main_side_body">
                             <div className="balance_holder">
@@ -63,7 +70,7 @@ function Stat () {
                             </div>
                         </div>
                         <button className="copy">
-                            скопировать  <span><FaCopy /></span>
+                        {t("copy")}  <span><FaCopy /></span>
                         </button>
                     </div>
                 </div>
